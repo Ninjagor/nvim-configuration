@@ -12,6 +12,7 @@ vim.api.nvim_set_keymap('n', '<leader>te', [[:set showtabline=2<CR>:echo "Tabluf
 
 vim.api.nvim_set_keymap('n', '<leader>tt', [[:lua require('base46').toggle_theme()<CR>:echo "Theme Toggled"<CR>]], { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', '<leader>ta', '<cmd>lua require("base46").toggle_transparency()<CR>', { noremap = true, silent = true })
 
 vim.g.netrw_banner = 0
 
