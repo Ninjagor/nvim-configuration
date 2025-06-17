@@ -55,24 +55,24 @@ require('lazy').setup({
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      local harpoon = require 'harpoon'
-      harpoon:setup()
-
-      local keymap = vim.keymap
-      keymap.set('n', '<leader>hm', function()
-        harpoon:list():add()
-      end, { desc = 'Harpoon mark file' })
-      keymap.set('n', '<leader>ho', function()
-        harpoon.ui:toggle_quick_menu(harpoon:list())
-      end, { desc = 'Harpoon menu' })
-      keymap.set('n', '<leader>nh', function()
-        harpoon:list():next()
-      end, { desc = 'Next Harpoon file' })
-      keymap.set('n', '<leader>ph', function()
-        harpoon:list():prev()
-      end, { desc = 'Previous Harpoon file' })
-    end,
+    -- config = function()
+    --   local harpoon = require 'harpoon'
+    --   harpoon:setup()
+    --
+    --   local keymap = vim.keymap
+    --   keymap.set('n', '<leader>hm', function()
+    --     harpoon:list():add()
+    --   end, { desc = 'Harpoon mark file' })
+    --   keymap.set('n', '<leader>ho', function()
+    --     harpoon.ui:toggle_quick_menu(harpoon:list())
+    --   end, { desc = 'Harpoon menu' })
+    --   keymap.set('n', '<leader>nh', function()
+    --     harpoon:list():next()
+    --   end, { desc = 'Next Harpoon file' })
+    --   keymap.set('n', '<leader>ph', function()
+    --     harpoon:list():prev()
+    --   end, { desc = 'Previous Harpoon file' })
+    -- end,
   },
 
   -- github dark theme
