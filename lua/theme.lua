@@ -1,7 +1,8 @@
 -- theme toggler - 1, 2
 local theme_number = 1
-local primary_theme = 'catppuccin'
-local secondary_theme = 'vague'
+local primary_theme = 'github_dark_default'
+local secondary_theme = 'catppuccin'
+-- local secondary_theme = 'vague'
 
 local are_themes_loaded = true
 

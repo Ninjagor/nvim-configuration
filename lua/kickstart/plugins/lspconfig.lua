@@ -171,7 +171,7 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+        -- tsserver = {},
         prismals = {},
         tailwindcss = {},
         ocamllsp = {},
@@ -208,7 +208,8 @@ return {
         'stylua', -- Used to format Lua code
         'rust_analyzer',
         'pyright',
-        'tsserver',
+        -- 'tsserver',
+        'typescript-language-server',
         'tailwindcss',
         'jdtls',
       })

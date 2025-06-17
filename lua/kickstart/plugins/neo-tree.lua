@@ -4,6 +4,13 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
+  config = function()
+    require('neo-tree').setup {
+      window = {
+        width = 27,
+      },
+    }
+  end,
   -- enabled = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
