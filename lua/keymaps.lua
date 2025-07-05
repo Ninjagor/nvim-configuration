@@ -73,7 +73,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Neotree keymap
-vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>')
+-- vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>')
 
 -- Netrw keymap
 
@@ -130,6 +130,11 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('n', '<leader>nr', ':Re<CR>', { silent = true })
 vim.keymap.set('n', '<leader>no', ':Explore<CR>', { silent = true })
-vim.keymap.set('n', '<leader>nf', ':find ', { silent = true })
 
+vim.keymap.set('n', '<leader>nf', ':find ', { silent = true })
 -- vim: ts=2 sts=2 sw=2 et
+
+-- LSP KEYMAPS
+vim.keymap.set('n', 'K', function()
+  vim.lsp.buf.hover { border = 'single', max_height = 25, max_width = 120 }
+end)

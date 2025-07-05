@@ -1,7 +1,7 @@
 -- theme toggler - 1, 2
 local theme_number = 1
-local primary_theme = 'rose-pine'
-local secondary_theme = 'gruvbox-material'
+local primary_theme = 'base16-kanagawa-dragon'
+local secondary_theme = 'rose-pine'
 -- local secondary_theme = 'vague'
 
 local are_themes_loaded = true
@@ -34,6 +34,8 @@ _G.theme_switch = function()
       vim.cmd.colorscheme(primary_theme)
     end
   end
+
+  vim.cmd [[ set background=dark ]]
 end
 
 vim.api.nvim_set_keymap('n', '<leader>ct', ':lua theme_switch()<CR>', { noremap = true, silent = true })

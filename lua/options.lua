@@ -12,7 +12,6 @@ vim.o.number = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
--- Don't show the mode, since it's already in the status line
 vim.o.showmode = true
 
 -- Sync clipboard between OS and Neovim.
@@ -24,7 +23,7 @@ vim.schedule(function()
 end)
 
 -- Enable break indent
-vim.o.breakindent = true
+vim.o.breakindent = trueopti
 
 -- Save undo history
 vim.o.undofile = true
@@ -61,7 +60,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.o.cursorline = true
+vim.o.cursorline = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
@@ -79,10 +78,12 @@ vim.o.softtabstop = 2
 vim.o.tabstop = 2
 vim.o.expandtab = true
 
-vim.o.cursorline = false
+vim.o.cursorline = true
 
 vim.o.guicursor = 'n-v-c-i-ci-ve-r-cr-o:block'
 
 vim.g.netrw_banner = 0
 
 vim.opt.path:append '**'
+
+-- vim.o.colorcolumn = "90"
