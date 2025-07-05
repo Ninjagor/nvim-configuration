@@ -4,7 +4,7 @@ return {
   lazy = false,
   opts = {
     styles = {
-      bold = true,
+      bold = false,
       italic = false,
       transparency = true,
     },

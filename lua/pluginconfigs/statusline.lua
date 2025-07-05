@@ -21,4 +21,10 @@ function _G.MyStatusline()
   return diag
 end
 
-vim.o.statusline = '%{mode()} %f %{v:lua.MyStatusline()} %m %= %l:%c'
+vim.api.nvim_set_hl(0, 'StatusLine', {
+  bg = '#242424', -- very dark gray (almost black)
+  fg = '#7e7d87', -- light gray text for contrast
+})
+
+-- vim.o.statusline = '%{mode()} %f %{v:lua.MyStatusline()} %m %= %l:%c'
+vim.o.statusline = '%f %{v:lua.MyStatusline()} %m %= %l:%c'
