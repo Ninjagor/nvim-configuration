@@ -21,19 +21,21 @@ end
 
 -- highlight override function
 local function apply_theme_overrides()
-  vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#000000' })
-  vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#ffffff', bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#121112' })
+  vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#ffffff', bg = '#121112' })
 
-  vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#000000' })
-  vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = '#ffffff', bg = '#000000' })
-  vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { bg = '#000000' })
-  vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#ffffff', bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#121112' })
+  vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = '#ffffff', bg = '#121112' })
+  vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { bg = '#121112' })
+  -- vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#ffffff', bg = '#121112' })
 
   vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { bg = '#ffffff' })
-  vim.api.nvim_set_hl(0, 'TelescopeResultsNormal', { bg = '#000000' })
-  vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = '#ffffff', bg = '#000000' })
-  vim.api.nvim_set_hl(0, 'TelescopePreviewNormal', { bg = '#000000' })
-  vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = '#ffffff', bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'TelescopeResultsNormal', { bg = '#121112' })
+  vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = '#ffffff', bg = '#121112' })
+  vim.api.nvim_set_hl(0, 'TelescopePreviewNormal', { bg = '#121112' })
+  vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = '#ffffff', bg = '#121112' })
+
+  vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#121112', bg = '#121112' })
 end
 
 vim.api.nvim_create_autocmd('User', {

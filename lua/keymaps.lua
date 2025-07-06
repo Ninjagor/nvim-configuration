@@ -171,3 +171,101 @@ end)
 vim.keymap.set('n', '<leader>bd', function()
   vim.cmd [[ bd ]]
 end)
+
+-- UNDOTREE
+vim.keymap.set('n', '<leader>ut', function()
+  vim.cmd [[ UndotreeToggle ]]
+end)
+
+-- TROUBLE
+vim.keymap.set('n', '<leader>xX', '<cmd>Trouble diagnostics toggle<cr>', { desc = 'Diagnostics (Trouble)' })
+
+vim.keymap.set('n', '<leader>xx', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', { desc = 'Buffer Diagnostics (Trouble)' })
+
+vim.keymap.set('n', '<leader>cs', '<cmd>Trouble symbols toggle focus=false<cr>', { desc = 'Symbols (Trouble)' })
+
+-- vim.keymap.set('n', '<leader>cl', '<cmd>Trouble lsp toggle focus=false win.position=right<cr>', { desc = 'LSP Definitions / references / ... (Trouble)' })
+--
+-- vim.keymap.set('n', '<leader>xL', '<cmd>Trouble loclist toggle<cr>', { desc = 'Location List (Trouble)' })
+--
+-- vim.keymap.set('n', '<leader>xQ', '<cmd>Trouble qflist toggle<cr>', { desc = 'Quickfix List (Trouble)' })
+
+-- QUICKFIX
+vim.keymap.set('n', '<leader>qa', function()
+  -- Get diagnostics from all buffers
+  local diagnostics = vim.diagnostic.get(nil) -- nil = all buffers
+  local qflist = {}
+
+  for _, d in ipairs(diagnostics) do
+    table.insert(qflist, {
+      bufnr = d.bufnr,
+      lnum = d.lnum + 1,
+      col = d.col + 1,
+      text = d.message,
+      type = (
+        d.severity == vim.diagnostic.severity.ERROR and 'E'
+        or d.severity == vim.diagnostic.severity.WARN and 'W'
+        or d.severity == vim.diagnostic.severity.INFO and 'I'
+        or 'N'
+      ),
+      severity = d.severity,
+    })
+  end
+
+  -- Sort by severity ascending (Error first)
+  table.sort(qflist, function(a, b)
+    return a.severity < b.severity
+  end)
+
+  -- Remove severity key, not needed by quickfix
+  for _, item in ipairs(qflist) do
+    item.severity = nil
+  end
+
+  vim.fn.setqflist(qflist, 'r')
+  vim.cmd 'copen'
+end, { desc = 'Open Quickfix: All Buffers Diagnostics (sorted by severity)' })
+
+vim.keymap.set('n', '<leader>qb', function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local diagnostics = vim.diagnostic.get(bufnr)
+
+  local qflist = {}
+  for _, d in ipairs(diagnostics) do
+    table.insert(qflist, {
+      bufnr = bufnr,
+      lnum = d.lnum + 1,
+      col = d.col + 1,
+      text = d.message,
+      type = (
+        d.severity == vim.diagnostic.severity.ERROR and 'E'
+        or d.severity == vim.diagnostic.severity.WARN and 'W'
+        or d.severity == vim.diagnostic.severity.INFO and 'I'
+        or 'N'
+      ),
+      severity = d.severity,
+    })
+  end
+
+  -- Sort by severity ascending (Error first)
+  table.sort(qflist, function(a, b)
+    return a.severity < b.severity
+  end)
+
+  -- Remove severity key, not needed by quickfix
+  for _, item in ipairs(qflist) do
+    item.severity = nil
+  end
+
+  vim.fn.setqflist(qflist, 'r')
+  vim.cmd 'copen'
+end, { desc = 'Show Current Buffer Diagnostics in Quickfix (sorted by severity)' })
+
+vim.keymap.set({ 'n', 'x' }, '<leader>oo', '<cmd>lua require("fastaction").code_action()<CR>', { desc = 'Display code actions', buffer = bufnr })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '<CR>:cclose<CR>', { noremap = true, silent = true })
+  end,
+})

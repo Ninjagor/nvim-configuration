@@ -12,6 +12,8 @@ require('lazy').setup({
     config = function() end,
   },
 
+  { 'mbbill/undotree', lazy = false, priority = 1000 },
+
   require 'kickstart.plugins.telescope',
 
   require 'custom.plugins.zenbones',
@@ -54,7 +56,7 @@ require('lazy').setup({
 
   -- require 'custom.plugins.lualine',
 
-  require 'kickstart.plugins.devicons',
+  -- require 'kickstart.plugins.devicons',
 
   require 'kickstart.plugins.marks',
 
@@ -70,7 +72,9 @@ require('lazy').setup({
 
   -- require 'custom.plugins.smear',
 
-  -- require 'kickstart.plugins.trouble',
+  require 'kickstart.plugins.trouble',
+
+  require 'custom.plugins.codeactions',
 
   --
   -- require 'kickstart.plugins.debug',

@@ -27,7 +27,7 @@ return {
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      -- { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -70,7 +70,7 @@ return {
           border = true,
 
           -- Transparency (0 = opaque, 100 = fully transparent)
-          winblend = 10,
+          -- winblend = 10,
 
           layout_config = {
             horizontal = {
@@ -78,7 +78,23 @@ return {
             },
           },
         },
-        -- pickers = {}
+
+        pickers = {
+          find_files = {
+            theme = 'ivy',
+            layout_config = {
+              height = 0.6, -- 50% of the screen height
+            },
+          },
+
+          live_grep = {
+            theme = 'ivy',
+            layout_config = {
+              height = 0.6, -- 50% of the screen height
+            },
+          },
+        },
+
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -116,22 +132,37 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      local function hl()
+        vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { bg = '#1d1c19' })
+        vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#1d1c19', bg = '#1d1c19' })
+        vim.api.nvim_set_hl(0, 'TelescopePromptPrefix', { fg = '#ffffff', bg = '#1d1c19' })
+        vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { bg = 'none', fg = '#121112' })
+
+        vim.api.nvim_set_hl(0, 'TelescopePromptTitle', { bg = '#1d1c19', fg = '#a6a69c' })
+        vim.api.nvim_set_hl(0, 'TelescopeSelection', { bg = 'none' })
+      end
+
       local function find_files_with_hl()
         builtin.find_files()
-        vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { bg = '#000000' })
-        vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#ffffff', bg = '#000000' })
-        vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { bg = '#ffffff', fg = '#000000' })
+        hl()
+      end
+
+      local function live_grep_with_hl()
+        builtin.live_grep()
+        hl()
       end
 
       vim.keymap.set('n', '<leader>sf', find_files_with_hl, { desc = '[S]earch [F]iles' })
 
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>sg', live_grep_with_hl, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+      -- vim.keymap.set('n', '<leader>ca', builtin.lsp_code, { desc = 'LSP Code Actions' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
