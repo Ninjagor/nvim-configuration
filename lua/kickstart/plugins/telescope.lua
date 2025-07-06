@@ -61,6 +61,17 @@ return {
         --   },
         -- },
         defaults = {
+          -- White border
+          borderchars = {
+            prompt = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+            results = { '─', '│', '─', '│', '├', '┤', '┘', '└' },
+            preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+          },
+          border = true,
+
+          -- Transparency (0 = opaque, 100 = fully transparent)
+          winblend = 10,
+
           layout_config = {
             horizontal = {
               preview_cutoff = 60, -- Hide preview if window width < 100 columns
@@ -104,7 +115,16 @@ return {
 
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      local function find_files_with_hl()
+        builtin.find_files()
+        vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { bg = '#000000' })
+        vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#ffffff', bg = '#000000' })
+        vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { bg = '#ffffff', fg = '#000000' })
+      end
+
+      vim.keymap.set('n', '<leader>sf', find_files_with_hl, { desc = '[S]earch [F]iles' })
+
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })

@@ -138,3 +138,23 @@ vim.keymap.set('n', '<leader>nf', ':find ', { silent = true })
 vim.keymap.set('n', 'K', function()
   vim.lsp.buf.hover { border = 'single', max_height = 25, max_width = 120 }
 end)
+
+vim.keymap.set('n', 'gr', function()
+  vim.lsp.buf.references()
+end)
+
+vim.keymap.set('n', 'gd', function()
+  vim.lsp.buf.definition()
+end)
+
+vim.keymap.set('n', 'gi', function()
+  vim.lsp.buf.implementation()
+end)
+
+vim.keymap.set('n', '<C-a>', function()
+  vim.lsp.buf.code_action()
+end)
+
+vim.keymap.set('n', 'rg', function()
+  vim.lsp.buf.rename()
+end)

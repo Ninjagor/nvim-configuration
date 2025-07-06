@@ -19,9 +19,32 @@ if not is_theme_available(secondary_theme) then
   are_themes_loaded = false
 end
 
+-- highlight override function
+local function apply_theme_overrides()
+  vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#ffffff', bg = '#000000' })
+
+  vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = '#ffffff', bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#ffffff', bg = '#000000' })
+
+  vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { bg = '#ffffff' })
+  vim.api.nvim_set_hl(0, 'TelescopeResultsNormal', { bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = '#ffffff', bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'TelescopePreviewNormal', { bg = '#000000' })
+  vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = '#ffffff', bg = '#000000' })
+end
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'TelescopePromptOpen',
+  callback = apply_theme_overrides,
+})
+
 -- failsafe, so if theme is not loaded, it will fallback to a known theme (default)
 if are_themes_loaded then
   vim.cmd.colorscheme(primary_theme)
+  apply_theme_overrides()
 end
 
 _G.theme_switch = function()
