@@ -158,3 +158,16 @@ end)
 vim.keymap.set('n', 'rg', function()
   vim.lsp.buf.rename()
 end)
+
+-- BUFFERS
+vim.keymap.set('n', '<leader>bn', function()
+  vim.cmd [[ bnext ]]
+end)
+
+vim.keymap.set('n', '<leader>bp', function()
+  vim.cmd [[ bprev ]]
+end)
+
+vim.keymap.set('n', '<leader>bd', function()
+  vim.cmd [[ bd ]]
+end)

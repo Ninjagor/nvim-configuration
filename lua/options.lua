@@ -86,4 +86,4 @@ vim.g.netrw_banner = 0
 
 vim.opt.path:append '**'
 
--- vim.o.colorcolumn = "90"
+-- vim.o.colorcolumn = '80'
