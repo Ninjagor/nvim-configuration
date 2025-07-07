@@ -269,3 +269,20 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '<CR>:cclose<CR>', { noremap = true, silent = true })
   end,
 })
+
+-- FZF-LUA
+vim.keymap.set({ 'n' }, '<leader>sf', function()
+  vim.cmd [[ FzfLua files ]]
+end)
+
+vim.keymap.set({ 'n' }, '<leader>sf', function()
+  vim.cmd [[ FzfLua files ]]
+end)
+
+vim.keymap.set({ 'n' }, '<leader>sg', function()
+  vim.cmd [[ FzfLua live_grep ]]
+end)
+
+vim.keymap.set({ 'n' }, '<leader>sb', function()
+  vim.cmd [[ FzfLua buffers ]]
+end)

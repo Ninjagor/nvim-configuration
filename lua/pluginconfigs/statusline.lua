@@ -45,4 +45,6 @@ vim.api.nvim_set_hl(0, 'StatusLine', {
 
 -- vim.o.statusline = '%{mode()} %f %{v:lua.MyStatusline()} %m %= %l:%c'
 -- vim.o.statusline = '%f %{v:lua.MyStatusline()} %m %= %l:%c'
-vim.o.statusline = '%f %{v:lua.MyStatusline()} %m %{v:lua.MyBufferInfo()} %= %l:%c'
+-- vim.o.statusline = '%f %{v:lua.MyStatusline()} %m %{v:lua.MyBufferInfo()} %= %l:%c'
+
+vim.o.statusline = '%{fnamemodify(expand("%"), ":~:.")} %{v:lua.MyStatusline()} %m %{v:lua.MyBufferInfo()} %= %l:%c'

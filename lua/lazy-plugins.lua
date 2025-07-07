@@ -14,9 +14,13 @@ require('lazy').setup({
 
   { 'mbbill/undotree', lazy = false, priority = 1000 },
 
-  require 'kickstart.plugins.telescope',
+  require 'dev.plugins.trident',
 
-  require 'custom.plugins.zenbones',
+  -- require 'kickstart.plugins.telescope',
+
+  require 'custom.plugins.fzf',
+
+  -- require 'custom.plugins.zenbones',
 
   require 'kickstart.plugins.lspconfig',
 
@@ -30,7 +34,7 @@ require('lazy').setup({
 
   -- require 'kickstart.plugins.gruvbox',
 
-  require 'kickstart.plugins.gruvbox',
+  -- require 'kickstart.plugins.gruvbox',
 
   -- require 'kickstart.plugins.catpuccin',
 
@@ -50,7 +54,7 @@ require('lazy').setup({
 
   require 'kickstart.plugins.autotag',
 
-  require 'kickstart.plugins.harpoon',
+  -- require 'kickstart.plugins.harpoon',
 
   -- require 'kickstart.plugins.zen',
 
@@ -68,7 +72,7 @@ require('lazy').setup({
 
   -- require 'custom.plugins.oil',
 
-  require 'custom.plugins.monochrome',
+  -- require 'custom.plugins.monochrome',
 
   -- require 'custom.plugins.smear',
 
