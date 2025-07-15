@@ -1,7 +1,7 @@
 -- theme toggler - 1, 2
 local theme_number = 1
-local primary_theme = 'base16-kanagawa-dragon'
-local secondary_theme = 'rose-pine'
+local secondary_theme = 'base16-kanagawa-dragon'
+local primary_theme = 'rose-pine'
 -- local secondary_theme = 'vague'
 
 local are_themes_loaded = true

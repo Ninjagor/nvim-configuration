@@ -38,9 +38,14 @@ function _G.MyBufferInfo()
   return string.format('[buf %d:%d]', current_index, total)
 end
 
+-- vim.api.nvim_set_hl(0, 'StatusLine', {
+--   bg = '#242424', -- very dark gray (almost black)
+--   fg = '#7e7d87', -- light gray text for contrast
+-- })
+
 vim.api.nvim_set_hl(0, 'StatusLine', {
-  bg = '#242424', -- very dark gray (almost black)
-  fg = '#7e7d87', -- light gray text for contrast
+  bg = '#5c666b',
+  fg = '#062027',
 })
 
 -- vim.o.statusline = '%{mode()} %f %{v:lua.MyStatusline()} %m %= %l:%c'

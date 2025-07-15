@@ -42,4 +42,9 @@ vim.api.nvim_set_hl(0, 'StatusLine', {
   fg = '#7e7d87',
 })
 
-vim.api.nvim_set_hl(0, 'Visual', { bg = '#c4b28a', fg = '#000000' })
+vim.cmd [[
+  highlight! NormalFloat guibg=NONE
+  highlight! FloatBorder guibg=NONE guifg=#474747
+]]
+
+-- vim.api.nvim_set_hl(0, 'Visual', { bg = '#c4b28a', fg = '#000000' })

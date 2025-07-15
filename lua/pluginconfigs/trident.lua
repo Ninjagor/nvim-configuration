@@ -15,3 +15,31 @@ end, { desc = 'Next Trident file', silent = true })
 keymap.set('n', '<leader>ph', function()
   vim.cmd [[TridentPrev]]
 end, { desc = 'Previous Trident file', silent = true })
+
+keymap.set('n', '<leader>po', function()
+  vim.cmd [[PikeList]]
+end)
+
+keymap.set('n', '<leader>pn', function()
+  vim.cmd [[PikeNext]]
+end)
+
+keymap.set('n', '<leader>pp', function()
+  vim.cmd [[PikePrev]]
+end)
+
+keymap.set('n', '<leader>png', function()
+  vim.cmd [[PikeNextGlobal]]
+end)
+
+keymap.set('n', '<leader>ppg', function()
+  vim.cmd [[PikePrevGlobal]]
+end)
+
+-- require('trident').generte_keybinds {
+--   create_label_prefix = 'm',
+--   delete_label_prefix = 'dm',
+--   jump_label_prefix = ';',
+--   create_typed_prefix = 'tt',
+--   clear_type_key = 'tr',
+-- }
