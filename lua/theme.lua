@@ -1,6 +1,6 @@
 -- theme toggler - 1, 2
 local theme_number = 1
-local primary_theme = 'gruber-darker'
+local primary_theme = 'lackluster-night'
 local secondary_theme = 'rose-pine'
 -- local secondary_theme = 'vague'
 

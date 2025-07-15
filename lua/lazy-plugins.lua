@@ -13,6 +13,28 @@ require('lazy').setup({
   { 'mbbill/undotree', lazy = false, priority = 1000 },
 
   {
+    'slugbyte/lackluster.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('lackluster').setup {
+        disable_plugin = {},
+        tweak_color = {
+          luster = '#aaaaaa',
+        },
+        tweak_syntax = {
+          comment = '#6f6f6f',
+        },
+        tweak_highlight = {
+          comments = {
+            italic = false,
+          },
+        },
+      }
+    end,
+  },
+
+  {
     name = 'gruber-darker',
     dir = vim.fn.expand '~/.config/nvim/local-plugins/gruber-darker',
     opts = {
