@@ -12,6 +12,19 @@ require('lazy').setup({
 
   { 'mbbill/undotree', lazy = false, priority = 1000 },
 
+  {
+    name = 'gruber-darker',
+    dir = vim.fn.expand '~/.config/nvim/local-plugins/gruber-darker',
+    opts = {
+      italic = {
+        strings = false,
+        comments = true,
+        operators = false,
+        folds = false,
+      },
+    },
+  },
+
   require 'dev.plugins.trident',
 
   require 'custom.plugins.fzf',
@@ -24,8 +37,6 @@ require('lazy').setup({
 
   require 'kickstart.plugins.new-rosepine',
 
-  -- require 'kickstart.plugins.mini',
-
   require 'kickstart.plugins.treesitter',
 
   require 'kickstart.plugins.autotag',
@@ -36,9 +47,6 @@ require('lazy').setup({
 
   require 'custom.plugins.transparent',
 
-  require 'custom.plugins.codeactions',
-
-  --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',

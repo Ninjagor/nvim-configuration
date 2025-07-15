@@ -1,7 +1,7 @@
 -- theme toggler - 1, 2
 local theme_number = 1
-local secondary_theme = 'base16-kanagawa-dragon'
-local primary_theme = 'rose-pine'
+local primary_theme = 'gruber-darker'
+local secondary_theme = 'rose-pine'
 -- local secondary_theme = 'vague'
 
 local are_themes_loaded = true
@@ -47,6 +47,12 @@ vim.api.nvim_create_autocmd('User', {
 if are_themes_loaded then
   vim.cmd.colorscheme(primary_theme)
   apply_theme_overrides()
+end
+
+_G.ApplyCustomColors = function(cl)
+  vim.cmd.colorscheme(cl)
+  if cl == '' then
+  end
 end
 
 _G.theme_switch = function()

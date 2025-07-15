@@ -261,7 +261,7 @@ vim.keymap.set('n', '<leader>qb', function()
   vim.cmd 'copen'
 end, { desc = 'Show Current Buffer Diagnostics in Quickfix (sorted by severity)' })
 
-vim.keymap.set({ 'n', 'x' }, '<leader>oo', '<cmd>lua require("fastaction").code_action()<CR>', { desc = 'Display code actions', buffer = bufnr })
+vim.keymap.set({ 'n', 'x' }, '<leader>oo', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = 'Display code actions', buffer = bufnr })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'qf',

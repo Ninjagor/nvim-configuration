@@ -45,6 +45,7 @@ vim.api.nvim_set_hl(0, 'StatusLine', {
 vim.cmd [[
   highlight! NormalFloat guibg=NONE
   highlight! FloatBorder guibg=NONE guifg=#474747
+  highlight! MatchParen guibg=NONE
 ]]
 
 -- vim.api.nvim_set_hl(0, 'Visual', { bg = '#c4b28a', fg = '#000000' })
