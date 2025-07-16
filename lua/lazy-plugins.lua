@@ -13,24 +13,15 @@ require('lazy').setup({
   { 'mbbill/undotree', lazy = false, priority = 1000 },
 
   {
-    'slugbyte/lackluster.nvim',
+    'metalelf0/black-metal-theme-neovim',
     lazy = false,
     priority = 1000,
     config = function()
-      require('lackluster').setup {
-        disable_plugin = {},
-        tweak_color = {
-          luster = '#aaaaaa',
-        },
-        tweak_syntax = {
-          comment = '#6f6f6f',
-        },
-        tweak_highlight = {
-          comments = {
-            italic = false,
-          },
-        },
+      require('black-metal').setup {
+        theme = 'dark-funeral',
+        variant = 'dark',
       }
+      require('black-metal').load()
     end,
   },
 
