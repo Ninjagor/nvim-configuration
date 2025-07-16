@@ -13,12 +13,14 @@ require('lazy').setup({
   { 'mbbill/undotree', lazy = false, priority = 1000 },
 
   {
-    'metalelf0/black-metal-theme-neovim',
+    name = 'black-metal',
+    dir = vim.fn.expand '~/.config/nvim/local-plugins/black-metal',
     lazy = false,
     priority = 1000,
     config = function()
       require('black-metal').setup {
-        theme = 'dark-funeral',
+        theme = 'impaled-nazarene',
+        -- theme = 'bathory',
         variant = 'dark',
       }
       require('black-metal').load()
