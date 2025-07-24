@@ -286,3 +286,8 @@ end)
 vim.keymap.set({ 'n' }, '<leader>sb', function()
   vim.cmd [[ FzfLua buffers ]]
 end)
+
+-- vim.cmd [[set completeopt=menu,menuone,noselect]]
+-- vim.keymap.set('i', '<C-m>', function()
+--   vim.api.nvim_echo({ { 'HELLO!', 'Normal' } }, false, {})
+-- end, { noremap = true })

@@ -62,3 +62,8 @@ vim.api.nvim_create_autocmd('FileType', {
 
 vim.o.colorcolumn = '70'
 vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#0d0d0d' })
+
+vim.api.nvim_set_hl(0, 'CmpPmenu', { bg = '#030303', fg = '#808080' })
+vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#0a0a0a', fg = '#FFFFFF' })
+vim.api.nvim_set_hl(0, 'CmpItemAbbr', { fg = '#608786' })
+vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { fg = '#608786', bold = true })
