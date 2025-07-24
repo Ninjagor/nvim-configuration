@@ -38,7 +38,8 @@ require 'pluginconfigs.statusline'
 vim.cmd 'TransparentEnable'
 
 vim.api.nvim_set_hl(0, 'StatusLine', {
-  bg = '#242424',
+  -- bg = '#242424',
+  bg = '#000000',
   fg = '#7e7d87',
 })
 
@@ -48,4 +49,16 @@ vim.cmd [[
   highlight! MatchParen guibg=NONE
 ]]
 
+vim.api.nvim_create_augroup('PreserveClipboard', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'PreserveClipboard',
+  pattern = 'netrw',
+  callback = function()
+    vim.fn.setreg('+', vim.fn.getreg '+')
+  end,
+})
+
 -- vim.api.nvim_set_hl(0, 'Visual', { bg = '#c4b28a', fg = '#000000' })
+
+vim.o.colorcolumn = '70'
+vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#0d0d0d' })

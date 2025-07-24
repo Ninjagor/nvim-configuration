@@ -73,10 +73,15 @@ vim.o.confirm = true
 -- vim: ts=2 sts=2 sw=2 et
 
 -- set indent to 2 spaces
-vim.o.shiftwidth = 2
-vim.o.softtabstop = 2
-vim.o.tabstop = 2
-vim.o.expandtab = true
+-- vim.o.shiftwidth = 2
+-- vim.o.softtabstop = 2
+-- vim.o.tabstop = 2
+-- vim.o.expandtab = true
+
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
 vim.o.cursorline = true
 
@@ -86,4 +91,4 @@ vim.g.netrw_banner = 0
 
 vim.opt.path:append '**'
 
--- vim.o.colorcolumn = '80'
+-- vim.o.colorcolumn = '30'

@@ -211,7 +211,7 @@ return {
         -- clangd = {},
         -- gopls = {},
         pyright = {},
-        asm_lsp = {},
+        -- asm_lsp = {},
         rust_analyzer = {},
 
         cssls = {},
@@ -268,7 +268,7 @@ return {
         'clangd',
         -- 'zls',
         'rust_analyzer',
-        'asm_lsp',
+        -- 'asm_lsp',
         'jdtls',
         'cssls',
       })

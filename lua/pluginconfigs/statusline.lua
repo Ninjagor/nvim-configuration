@@ -44,7 +44,8 @@ end
 -- })
 
 vim.api.nvim_set_hl(0, 'StatusLine', {
-  bg = '#5c666b',
+  -- bg = '#5c666b',
+  bg = '#000000',
   fg = '#062027',
 })
 

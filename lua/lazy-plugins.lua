@@ -1,5 +1,5 @@
 require('lazy').setup({
-  -- 'NMAC427/guess-indent.nvim',
+  'NMAC427/guess-indent.nvim',
 
   'NLKNguyen/papercolor-theme',
 
@@ -8,6 +8,43 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function() end,
+  },
+
+  -- {
+  --   'goolord/alpha-nvim',
+  --   config = function()
+  --     local alpha = require 'alpha'
+  --     local dashboard = require 'alpha.themes.dashboard'
+  --
+  --     alpha.setup(dashboard.config)
+  --   end,
+  -- },
+
+  {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    ft = { 'org' },
+    config = function()
+      -- Setup orgmode
+      require('orgmode').setup {
+        org_agenda_files = '~/orgfiles/**/*',
+        org_default_notes_file = '~/orgfiles/refile.org',
+      }
+
+      -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
+      -- add ~org~ to ignore_install
+      -- require('nvim-treesitter.configs').setup({
+      --   ensure_installed = 'all',
+      --   ignore_install = { 'org' },
+      -- })
+    end,
+  },
+
+  {
+    'brianhuster/live-preview.nvim',
+    dependencies = {
+      'ibhagwan/fzf-lua',
+    },
   },
 
   { 'mbbill/undotree', lazy = false, priority = 1000 },
